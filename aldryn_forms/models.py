@@ -103,7 +103,7 @@ class FormPlugin(CMSPlugin):
         help_text=_('People who will get the form content via e-mail.')
     )
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def copy_relations(self, oldinstance):
@@ -200,8 +200,8 @@ class FieldsetPlugin(CMSPlugin):
     custom_classes = models.CharField(
         verbose_name=_('custom css classes'), max_length=200, blank=True)
 
-    def __unicode__(self):
-        return self.legend or unicode(self.pk)
+    def __str__(self):
+        return self.legend or str(self.pk)
 
 
 class FieldPluginBase(CMSPlugin):
@@ -254,7 +254,7 @@ class FieldPluginBase(CMSPlugin):
             attribute = 'is_%s' % self.field_type
             setattr(self, attribute, True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.label or str(self.pk)
 
     @property
@@ -346,7 +346,7 @@ class Option(models.Model):
     value = models.CharField(_('Value'), max_length=50)
     default_value = models.BooleanField(_('Default'), default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.value
 
 
@@ -356,7 +356,7 @@ class FormButtonPlugin(CMSPlugin):
     custom_classes = models.CharField(
         verbose_name=_('custom css classes'), max_length=200, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.label
 
 
@@ -382,7 +382,7 @@ class FormData(models.Model):
         verbose_name = _('Form submission')
         verbose_name_plural = _('Form submissions')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def get_data(self):

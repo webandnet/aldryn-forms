@@ -243,10 +243,10 @@ class Field(FormElement):
 
     def serialize_value(self, instance, value, is_confirmation=False):
         if isinstance(value, query.QuerySet):
-            value = u', '.join(map(unicode, value))
+            value = u', '.join(map(str, value))
         elif value is None:
             value = '-'
-        return unicode(value)
+        return str(value)
 
     def serialize_field(self, form, field, is_confirmation=False):
         """Returns a (key, label, value) named tuple for the given field."""

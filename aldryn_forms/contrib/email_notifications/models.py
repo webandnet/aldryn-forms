@@ -107,7 +107,7 @@ class EmailNotification(models.Model):
         related_name='email_notifications'
     )
 
-    def __unicode__(self):
+    def __str__(self):
         to_name = self.get_recipient_name()
         to_email = self.get_recipient_email()
         return u'{0} ({1})'.format(to_name, to_email)
